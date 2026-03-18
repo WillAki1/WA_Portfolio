@@ -6,7 +6,7 @@ const skillGroups = [
 { label: "Spreadsheets", items: ["Excel", "Google Sheets"] },
 {
   label: "AI / Machine Learning",
-  items: ["Scikit-learn", "TensorFlow", "NLP", "Regression", "Clustering"]
+  items: ["Scikit-learn", "TensorFlow", "NLP"]
 }];
 
 

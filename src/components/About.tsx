@@ -14,7 +14,7 @@ const About = () =>
 
       <ScrollReveal className="col-span-12 md:col-span-7 space-y-6" delay={0.15}>
         <p className="font-sans text-lg leading-relaxed text-foreground/80">
-          I'm William — a data analyst who believes every dataset has a narrative
+          As an aspiring data analyst who believes every dataset has a narrative
           waiting to be uncovered. My work sits at the intersection of rigorous
           statistical analysis and compelling visual storytelling.
         </p>
