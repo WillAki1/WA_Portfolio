@@ -156,7 +156,7 @@ const Projects = () => (
     <div className="max-w-7xl mx-auto">
       <ScrollReveal>
         <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-vermillion mb-16 underline underline-offset-8 decoration-vermillion/40">
-          Selected Work
+          PROJECTS
         </h2>
       </ScrollReveal>
 
