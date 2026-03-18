@@ -4,6 +4,7 @@ import {
   XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid,
 } from "recharts";
 import ScrollReveal from "./ScrollReveal";
+import TiltCard from "./TiltCard";
 import { useState, useEffect, useRef } from "react";
 
 const lineData = [
