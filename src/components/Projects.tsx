@@ -97,7 +97,7 @@ const projects: ProjectData[] = [
   {
     title: "E-Commerce Revenue Analysis",
     summary: "Comparative revenue vs. cost analysis across 6 product categories revealing a 31% margin gap in Food & Beverage.",
-    tags: ["R", "Tableau", "PostgreSQL"],
+    tags: ["PYTHON", "Tableau", "PostgreSQL"],
     chart: (
       <ChartWrapper>
         <ResponsiveContainer width="100%" height="100%">
@@ -115,7 +115,7 @@ const projects: ProjectData[] = [
   {
     title: "Customer Segmentation",
     summary: "K-means clustering on 12,000 customer profiles identifying 4 distinct behavioral segments with 89.3% silhouette score.",
-    tags: ["Python", "Scikit-learn", "NLP", "D3.js"],
+    tags: ["PYTHON", "SCIKIT-LEARN", "NLP"],
     chart: (
       <ChartWrapper>
         <ResponsiveContainer width="100%" height="100%">

@@ -40,9 +40,6 @@ const Contact = () =>
 
       <ScrollReveal delay={0.3}>
         <div className="mt-24 pt-8 border-t border-foreground/10">
-          <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-            © {new Date().getFullYear()} William Porter. Designed with editorial precision.
-          </p>
         </div>
       </ScrollReveal>
     </div>

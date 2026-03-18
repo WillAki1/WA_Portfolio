@@ -1,8 +1,8 @@
 import ScrollReveal from "./ScrollReveal";
 
 const skillGroups = [
-  { label: "Languages", items: ["Python", "R", "SQL"] },
-  { label: "Visualisation", items: ["Tableau", "Power BI", "D3.js"] },
+  { label: "Languages", items: ["Python", "SQL"] },
+  { label: "Visualisation", items: ["Tableau", "Power BI"] },
   { label: "Spreadsheets", items: ["Excel", "Google Sheets"] },
   {
     label: "AI / Machine Learning",
