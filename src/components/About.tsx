@@ -18,22 +18,17 @@ const About = () =>
           waiting to be uncovered. My work sits at the intersection of rigorous
           statistical analysis and compelling visual storytelling.
         </p>
-        <p className="font-sans text-lg leading-relaxed text-foreground/80"> 
-
-
-
-
-      </p>
         <p className="font-sans text-lg leading-relaxed text-foreground/80">
-
-
-
-      </p>
-        <p className="font-sans text-lg leading-relaxed text-foreground/80">When I'm not wrangling data, I love to stay active by playing football (as a Chelsea supporter), going for a run and playing a nice backhand serve in padel that can't be returned!
-
-
-
-      </p>
+          With a foundation in Python and SQL, I build end-to-end analytical
+          pipelines that transform raw, messy data into clear, decision-driving
+          insights. I approach every problem with curiosity and a bias towards
+          clarity, to present with precision.
+        </p>
+        <p className="font-sans text-lg leading-relaxed text-foreground/80">
+          When I'm not wrangling data, I love to stay active by playing football
+          (as a Chelsea supporter), going for a run and playing a nice backhand
+          serve in padel that can't be returned!
+        </p>
       </ScrollReveal>
     </div>
   </section>;
