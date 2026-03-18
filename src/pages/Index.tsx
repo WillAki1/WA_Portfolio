@@ -11,7 +11,7 @@ const Index = () => (
     <About />
     <Skills />
     <Projects />
-    <Timeline />
+    
     <Contact />
   </main>
 );
