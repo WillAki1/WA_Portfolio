@@ -162,39 +162,41 @@ const Projects = () => (
 
       {projects.map((project, i) => (
         <ScrollReveal key={project.title} delay={0.1}>
-          <div className="py-16 md:py-24 border-t border-foreground/10 grid grid-cols-12 gap-8 items-start">
-            {/* Metadata */}
-            <div className="col-span-12 md:col-span-4 md:sticky md:top-24">
-              <div className="flex flex-wrap gap-2 mb-6">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="font-mono text-[10px] uppercase tracking-tight border border-foreground/20 px-2 py-0.5"
-                  >
-                    {tag}
-                  </span>
-                ))}
+          <TiltCard className="py-16 md:py-24 border-t border-foreground/10 border border-foreground/5 bg-card shadow-sm">
+            <div className="grid grid-cols-12 gap-8 items-start p-6 md:p-10">
+              {/* Metadata */}
+              <div className="col-span-12 md:col-span-4">
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="font-mono text-[10px] uppercase tracking-tight border border-foreground/20 px-2 py-0.5"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <h3 className="font-display text-3xl md:text-5xl mb-6 leading-tight">
+                  {project.title}
+                </h3>
+                <p className="font-sans text-base md:text-lg text-foreground/70 mb-8">
+                  {project.summary}
+                </p>
+                <a
+                  href="#"
+                  className="group inline-flex items-center font-sans font-bold text-sm uppercase tracking-widest"
+                >
+                  Read Case Study
+                  <div className="ml-2 h-[1px] w-8 bg-vermillion group-hover:w-12 transition-all duration-300" />
+                </a>
               </div>
-              <h3 className="font-display text-3xl md:text-5xl mb-6 leading-tight">
-                {project.title}
-              </h3>
-              <p className="font-sans text-base md:text-lg text-foreground/70 mb-8">
-                {project.summary}
-              </p>
-              <a
-                href="#"
-                className="group inline-flex items-center font-sans font-bold text-sm uppercase tracking-widest"
-              >
-                Read Case Study
-                <div className="ml-2 h-[1px] w-8 bg-vermillion group-hover:w-12 transition-all duration-300" />
-              </a>
-            </div>
 
-            {/* Chart */}
-            <div className="col-span-12 md:col-span-8 border border-foreground/5 p-6 md:p-12">
-              {project.chart}
+              {/* Chart */}
+              <div className="col-span-12 md:col-span-8 border border-foreground/5 p-6 md:p-12">
+                {project.chart}
+              </div>
             </div>
-          </div>
+          </TiltCard>
         </ScrollReveal>
       ))}
     </div>
