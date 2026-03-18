@@ -97,7 +97,7 @@ const projects: ProjectData[] = [
   {
     title: "E-Commerce Revenue Analysis",
     summary: "Comparative revenue vs. cost analysis across 6 product categories revealing a 31% margin gap in Food & Beverage.",
-    tags: ["R", "Tableau", "PostgreSQL"],
+    tags: ["PYTHON", "Tableau", "PostgreSQL"],
     chart: (
       <ChartWrapper>
         <ResponsiveContainer width="100%" height="100%">
