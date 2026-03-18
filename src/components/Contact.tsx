@@ -1,7 +1,7 @@
 import ScrollReveal from "./ScrollReveal";
 
-const Contact = () => (
-  <section className="py-24 md:py-32 px-6 md:px-12 editorial-rule">
+const Contact = () =>
+<section className="py-24 md:py-32 px-6 md:px-12 editorial-rule">
     <div className="max-w-7xl mx-auto">
       <ScrollReveal>
         <h2 className="font-display text-4xl md:text-7xl lg:text-8xl leading-[0.9] mb-12 max-w-4xl">
@@ -12,27 +12,27 @@ const Contact = () => (
 
       <ScrollReveal delay={0.15}>
         <a
-          href="mailto:william@example.com"
-          className="font-sans text-xl md:text-3xl link-underline text-foreground/80 hover:text-foreground transition-colors duration-300"
-        >
-          william@example.com
-        </a>
+        href="mailto:william@example.com"
+        className="font-sans text-xl md:text-3xl link-underline text-foreground/80 hover:text-foreground transition-colors duration-300">william.akitikori@outlook.com
+
+
+      </a>
 
         <div className="flex gap-8 mt-10">
           <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-mono text-xs uppercase tracking-widest link-underline pb-1 text-muted-foreground hover:text-foreground transition-colors"
-          >
+          href="https://linkedin.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-mono text-xs uppercase tracking-widest link-underline pb-1 text-muted-foreground hover:text-foreground transition-colors">
+          
             LinkedIn
           </a>
           <a
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-mono text-xs uppercase tracking-widest link-underline pb-1 text-muted-foreground hover:text-foreground transition-colors"
-          >
+          href="https://github.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-mono text-xs uppercase tracking-widest link-underline pb-1 text-muted-foreground hover:text-foreground transition-colors">
+          
             GitHub
           </a>
         </div>
@@ -46,7 +46,7 @@ const Contact = () => (
         </div>
       </ScrollReveal>
     </div>
-  </section>
-);
+  </section>;
+
 
 export default Contact;
