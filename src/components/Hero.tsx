@@ -47,7 +47,20 @@ const Hero = () =>
       className="font-display text-6xl sm:text-7xl md:text-[10rem] lg:text-[12rem] leading-[0.85] mb-12 -ml-1">
       
         Hello, I'm <br />
-        <span className="italic">William.</span>
+        <motion.span
+          className="italic inline-block"
+          initial={{ opacity: 0, y: -80, scale: 0.6 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{
+            delay: 0.6,
+            duration: 0.6,
+            type: "spring",
+            stiffness: 300,
+            damping: 12,
+          }}
+        >
+          William.
+        </motion.span>
       </motion.h1>
 
       <div className="grid grid-cols-12 gap-6">
