@@ -41,14 +41,20 @@ const Hero = () =>
     
 
       <motion.h1
-      initial={{ opacity: 0, y: -80, scale: 0.6 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
+      initial={{ opacity: 0, y: -300 }}
+      animate={{ 
+        opacity: 1, 
+        y: [null, 0, -120, 0, -50, 0, -15, 0, -4, 0] 
+      }}
       transition={{
         delay: 0.2,
-        duration: 0.6,
-        type: "spring",
-        stiffness: 300,
-        damping: 12,
+        duration: 1.8,
+        ease: "easeIn",
+        y: {
+          duration: 1.8,
+          times: [0, 0.2, 0.35, 0.5, 0.62, 0.72, 0.8, 0.87, 0.93, 1],
+          ease: "easeOut",
+        },
       }}
       className="font-display text-6xl sm:text-7xl md:text-[10rem] lg:text-[12rem] leading-[0.85] mb-12 -ml-1">
       
