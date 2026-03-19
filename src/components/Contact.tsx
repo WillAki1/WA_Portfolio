@@ -55,7 +55,7 @@ const Contact = () => {
                 maxLength={255}
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full bg-transparent border-b border-foreground/20 py-3 font-sans text-base text-foreground focus:outline-none focus:border-vermillion transition-colors"
+                className="w-full bg-transparent border border-foreground/20 rounded-sm px-4 py-3 font-sans text-base text-foreground focus:outline-none focus:border-vermillion transition-colors"
                 placeholder="Your email"
               />
             </div>
