@@ -13,22 +13,22 @@ const About = () =>
       </ScrollReveal>
 
       <ScrollReveal className="col-span-12 md:col-span-7 space-y-6" delay={0.15}>
-        <p className="font-sans text-lg leading-relaxed text-foreground/80">
-          As an aspiring data analyst who believes every dataset has a narrative
-          waiting to be uncovered. My work sits at the intersection of rigorous
-          statistical analysis and compelling visual storytelling.
-        </p>
+        <p className="font-sans text-lg leading-relaxed text-foreground/80">As an aspiring data analyst, I believe every dataset has a narrative waiting to be uncovered. My work sits at the intersection of rigorous statistical analysis and compelling visual storytelling.
+
+
+
+      </p>
         <p className="font-sans text-lg leading-relaxed text-foreground/80">
           With a foundation in Python and SQL, I build end-to-end analytical
           pipelines that transform raw, messy data into clear, decision-driving
           insights. I approach every problem with curiosity and a bias towards
           clarity, to present with precision.
         </p>
-        <p className="font-sans text-lg leading-relaxed text-foreground/80">
-          When I'm not wrangling data, I love to stay active by playing football
-          (as a Chelsea supporter), going for a run and playing a nice backhand
-          serve in padel that can't be returned!
-        </p>
+        <p className="font-sans text-lg leading-relaxed text-foreground/80">When I'm not wrangling data, I love to stay active by playing football (yes, I support the greatest club in the world... Chelsea), going for runs and trying to get it under sub 20, and playing a nice backhand serve in padel that can't be returned!
+
+
+
+      </p>
       </ScrollReveal>
     </div>
   </section>;
