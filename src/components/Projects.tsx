@@ -1,22 +1,25 @@
 import {
   LineChart, Line, BarChart, Bar, ScatterChart, Scatter,
-  AreaChart, Area,
   XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid,
 } from "recharts";
 import ScrollReveal from "./ScrollReveal";
 import TiltCard from "./TiltCard";
 import { useState, useEffect, useRef } from "react";
 
-const lineData = [
-  { name: "Jan", value: 4200 }, { name: "Feb", value: 3800 },
-  { name: "Mar", value: 5100 }, { name: "Apr", value: 4600 },
-  { name: "May", value: 5800 }, { name: "Jun", value: 7200 },
-  { name: "Jul", value: 6900 }, { name: "Aug", value: 8100 },
-  { name: "Sep", value: 7600 }, { name: "Oct", value: 9200 },
-  { name: "Nov", value: 8800 }, { name: "Dec", value: 10400 },
+// Customer Churn data
+const churnData = [
+  { name: "Month 1", retained: 95, churned: 5 },
+  { name: "Month 2", retained: 89, churned: 11 },
+  { name: "Month 3", retained: 82, churned: 18 },
+  { name: "Month 4", retained: 78, churned: 22 },
+  { name: "Month 5", retained: 74, churned: 26 },
+  { name: "Month 6", retained: 71, churned: 29 },
+  { name: "Month 7", retained: 68, churned: 32 },
+  { name: "Month 8", retained: 65, churned: 35 },
 ];
 
-const barData = [
+// E-Commerce Sales data
+const salesData = [
   { name: "Electronics", revenue: 42000, cost: 28000 },
   { name: "Clothing", revenue: 35000, cost: 18000 },
   { name: "Food", revenue: 28000, cost: 22000 },
@@ -25,21 +28,11 @@ const barData = [
   { name: "Home", revenue: 31000, cost: 19000 },
 ];
 
-const scatterData = Array.from({ length: 40 }, (_, i) => ({
+// World Cup prediction data
+const predictionData = Array.from({ length: 30 }, (_, i) => ({
   x: Math.round(20 + Math.random() * 80),
   y: Math.round(10 + Math.random() * 90),
 }));
-
-const areaData = [
-  { name: "W1", users: 1200, sessions: 3400 },
-  { name: "W2", users: 1800, sessions: 4200 },
-  { name: "W3", users: 2200, sessions: 5100 },
-  { name: "W4", users: 2800, sessions: 6800 },
-  { name: "W5", users: 3200, sessions: 7200 },
-  { name: "W6", users: 3800, sessions: 8400 },
-  { name: "W7", users: 4100, sessions: 9100 },
-  { name: "W8", users: 4600, sessions: 10200 },
-];
 
 const tooltipStyle = {
   borderRadius: "0px",
@@ -79,30 +72,31 @@ const ChartWrapper = ({ children }: { children: React.ReactNode }) => {
 
 const projects: ProjectData[] = [
   {
-    title: "Retail Sales Forecasting",
-    summary: "Time-series forecasting model trained on 500K+ rows of retail transaction data, reducing inventory waste by 23.4%.",
+    title: "Customer Churn Analysis",
+    summary: "Predictive churn model analysing customer behaviour patterns across 8 months, identifying key retention drivers and reducing churn rate by 18%.",
     tags: ["Python", "Scikit-learn", "Pandas", "SQL"],
     chart: (
       <ChartWrapper>
         <ResponsiveContainer width="100%" height="100%">
-          <LineChart data={lineData}>
+          <LineChart data={churnData}>
             <XAxis dataKey="name" axisLine={false} tickLine={false} tick={axisTickStyle} />
             <YAxis hide />
             <Tooltip contentStyle={tooltipStyle} cursor={{ stroke: "#E63323", strokeWidth: 1 }} />
-            <Line type="monotone" dataKey="value" stroke="#E63323" strokeWidth={3} dot={false} animationDuration={2000} />
+            <Line type="monotone" dataKey="retained" stroke="#111010" strokeWidth={2.5} dot={false} animationDuration={2000} />
+            <Line type="monotone" dataKey="churned" stroke="#E63323" strokeWidth={2.5} dot={false} animationDuration={2000} />
           </LineChart>
         </ResponsiveContainer>
       </ChartWrapper>
     ),
   },
   {
-    title: "E-Commerce Revenue Analysis",
-    summary: "Comparative revenue vs. cost analysis across 6 product categories revealing a 31% margin gap in Food & Beverage.",
-    tags: ["PYTHON", "Tableau", "PostgreSQL"],
+    title: "E-Commerce Sales Performance Analysis",
+    summary: "Comprehensive revenue vs. cost analysis across 6 product categories, uncovering margin inefficiencies and driving data-backed pricing strategy.",
+    tags: ["Python", "Tableau", "PostgreSQL", "Excel"],
     chart: (
       <ChartWrapper>
         <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={barData}>
+          <BarChart data={salesData}>
             <XAxis dataKey="name" axisLine={false} tickLine={false} tick={axisTickStyle} />
             <YAxis hide />
             <Tooltip contentStyle={tooltipStyle} />
@@ -114,37 +108,19 @@ const projects: ProjectData[] = [
     ),
   },
   {
-    title: "Customer Segmentation",
-    summary: "K-means clustering on 12,000 customer profiles identifying 4 distinct behavioral segments with 89.3% silhouette score.",
-    tags: ["PYTHON", "SCIKIT-LEARN", "NLP"],
+    title: "Sports Analytics: World Cup 2026 Winner Prediction",
+    summary: "Machine learning model leveraging historical match data, team rankings, and player statistics to predict the 2026 FIFA World Cup outcome.",
+    tags: ["Python", "Scikit-learn", "NLP", "Power BI"],
     chart: (
       <ChartWrapper>
         <ResponsiveContainer width="100%" height="100%">
           <ScatterChart>
             <CartesianGrid strokeDasharray="3 3" stroke="#11101010" />
-            <XAxis dataKey="x" axisLine={false} tickLine={false} tick={axisTickStyle} name="Spend" />
-            <YAxis dataKey="y" axisLine={false} tickLine={false} tick={axisTickStyle} name="Frequency" />
+            <XAxis dataKey="x" axisLine={false} tickLine={false} tick={axisTickStyle} name="Team Strength" />
+            <YAxis dataKey="y" axisLine={false} tickLine={false} tick={axisTickStyle} name="Win Probability" />
             <Tooltip contentStyle={tooltipStyle} cursor={{ strokeDasharray: "3 3" }} />
-            <Scatter data={scatterData} fill="#E63323" animationDuration={2000} />
+            <Scatter data={predictionData} fill="#E63323" animationDuration={2000} />
           </ScatterChart>
-        </ResponsiveContainer>
-      </ChartWrapper>
-    ),
-  },
-  {
-    title: "User Growth Analytics",
-    summary: "Real-time dashboard tracking weekly active users and session depth, surfacing a 283% growth trajectory over 8 weeks.",
-    tags: ["Power BI", "SQL", "Excel"],
-    chart: (
-      <ChartWrapper>
-        <ResponsiveContainer width="100%" height="100%">
-          <AreaChart data={areaData}>
-            <XAxis dataKey="name" axisLine={false} tickLine={false} tick={axisTickStyle} />
-            <YAxis hide />
-            <Tooltip contentStyle={tooltipStyle} />
-            <Area type="monotone" dataKey="sessions" stroke="#11101030" fill="#11101008" strokeWidth={1.5} animationDuration={2000} />
-            <Area type="monotone" dataKey="users" stroke="#E63323" fill="#E6332310" strokeWidth={2.5} animationDuration={2000} />
-          </AreaChart>
         </ResponsiveContainer>
       </ChartWrapper>
     ),
@@ -160,11 +136,10 @@ const Projects = () => (
         </h2>
       </ScrollReveal>
 
-      {projects.map((project, i) => (
+      {projects.map((project) => (
         <ScrollReveal key={project.title} delay={0.1}>
           <TiltCard className="py-16 md:py-24 border-t border-foreground/10 border border-foreground/5 bg-card shadow-sm">
             <div className="grid grid-cols-12 gap-8 items-start p-6 md:p-10">
-              {/* Metadata */}
               <div className="col-span-12 md:col-span-4">
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tags.map((tag) => (
@@ -190,8 +165,6 @@ const Projects = () => (
                   <div className="ml-2 h-[1px] w-8 bg-vermillion group-hover:w-12 transition-all duration-300" />
                 </a>
               </div>
-
-              {/* Chart */}
               <div className="col-span-12 md:col-span-8 border border-foreground/5 p-6 md:p-12">
                 {project.chart}
               </div>
