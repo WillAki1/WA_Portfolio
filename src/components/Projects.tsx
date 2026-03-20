@@ -134,8 +134,8 @@ const Projects = () =>
         <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-vermillion mb-4 underline underline-offset-8 decoration-vermillion/40">
           PROJECTS
         </h2>
-        <p className="font-display text-xl md:text-2xl text-foreground/50 mb-16 leading-snug">
-          A selection of projects I'm currently exploring.
+        <p className="font-mono text-xs uppercase tracking-[0.3em] text-foreground/50 mb-16">
+          A SELECTION OF PROJECTS I'M CURRENTLY EXPLORING.
         </p>
       </ScrollReveal>
 
