@@ -131,9 +131,12 @@ const Projects = () =>
 <section id="projects" className="py-24 md:py-32 px-6 md:px-12 editorial-rule">
     <div className="max-w-7xl mx-auto">
       <ScrollReveal>
-        <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-vermillion mb-16 underline underline-offset-8 decoration-vermillion/40">
+        <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-vermillion mb-4 underline underline-offset-8 decoration-vermillion/40">
           PROJECTS
         </h2>
+        <p className="font-sans text-lg text-foreground/60 mb-16">
+          A selection of projects I'm currently exploring.
+        </p>
       </ScrollReveal>
 
       {projects.map((project) =>
