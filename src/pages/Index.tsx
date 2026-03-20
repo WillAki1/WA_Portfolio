@@ -12,7 +12,7 @@ const Index = () => {
     supabase.functions.invoke("notify-visitor", {
       body: {
         page: window.location.pathname,
-        referrer: document.referrer || null,
+        referrer: document.referrer ? new URL(document.referrer).origin : null,
         userAgent: navigator.userAgent,
         timestamp: new Date().toISOString(),
       },

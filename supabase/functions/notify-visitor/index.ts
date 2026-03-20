@@ -29,10 +29,10 @@ serve(async (req) => {
       title: "👀 New Portfolio Visitor",
       color: 0x5865f2,
       fields: [
-        { name: "📄 Page", value: page || "/", inline: true },
+        { name: "📄 Page", value: String(page || "/").substring(0, 1024), inline: true },
         { name: "🕐 Time (UTC)", value: timeStr, inline: true },
-        { name: "🔗 Referrer", value: referrer || "Direct", inline: false },
-        { name: "🖥️ User Agent", value: (userAgent || "Unknown").substring(0, 200), inline: false },
+        { name: "🔗 Referrer", value: String(referrer || "Direct").substring(0, 1024), inline: false },
+        { name: "🖥️ User Agent", value: String(userAgent || "Unknown").substring(0, 200), inline: false },
       ],
       footer: { text: "Portfolio Visitor Tracker" },
       timestamp: now.toISOString(),
