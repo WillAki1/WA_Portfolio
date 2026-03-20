@@ -1,7 +1,7 @@
 import ScrollReveal from "./ScrollReveal";
 
 const About = () =>
-<section className="py-24 md:py-32 px-6 md:px-12 editorial-rule">
+<section id="about" className="py-24 md:py-32 px-6 md:px-12 editorial-rule">
     <div className="max-w-7xl mx-auto grid grid-cols-12 gap-8 md:gap-16">
       <ScrollReveal className="col-span-12 md:col-span-5">
         <p className="font-mono text-xs uppercase tracking-[0.3em] text-vermillion mb-8">ABOUT ME

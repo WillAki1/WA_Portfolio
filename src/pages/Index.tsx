@@ -3,11 +3,11 @@ import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
-import DarkModeToggle from "@/components/DarkModeToggle";
+import Navbar from "@/components/Navbar";
 
 const Index = () => (
   <main className="bg-background text-foreground transition-colors duration-300">
-    <DarkModeToggle />
+    <Navbar />
     <Hero />
     <About />
     <Skills />

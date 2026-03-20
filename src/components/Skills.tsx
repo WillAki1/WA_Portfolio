@@ -11,7 +11,7 @@ const skillGroups = [
 
 
 const Skills = () =>
-<section className="py-24 md:py-32 px-6 md:px-12 editorial-rule">
+<section id="skills" className="py-24 md:py-32 px-6 md:px-12 editorial-rule">
     <div className="max-w-7xl mx-auto">
       <ScrollReveal>
         <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-vermillion mb-16 underline underline-offset-8 decoration-vermillion/40">TECHNICAL SKILLS
