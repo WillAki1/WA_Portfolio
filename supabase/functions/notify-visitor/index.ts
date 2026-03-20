@@ -20,7 +20,27 @@ serve(async (req) => {
   }
 
   try {
-    const { page, referrer, userAgent, timestamp } = await req.json();
+    const { page, referrer, userAgent, deviceType, timestamp } = await req.json();
+
+    // Get visitor IP for geolocation
+    const clientIp =
+      req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+      req.headers.get("cf-connecting-ip") ||
+      "Unknown";
+
+    // Lookup approximate location
+    let location = "Unknown";
+    try {
+      if (clientIp && clientIp !== "Unknown" && clientIp !== "127.0.0.1") {
+        const geoRes = await fetch(`http://ip-api.com/json/${clientIp}?fields=city,country,status`);
+        const geoData = await geoRes.json();
+        if (geoData.status === "success") {
+          location = [geoData.city, geoData.country].filter(Boolean).join(", ") || "Unknown";
+        }
+      }
+    } catch {
+      // Geolocation is best-effort
+    }
 
     const now = new Date(timestamp || Date.now());
     const timeStr = now.toLocaleString("en-GB", { timeZone: "UTC" });
@@ -31,6 +51,8 @@ serve(async (req) => {
       fields: [
         { name: "📄 Page", value: String(page || "/").substring(0, 1024), inline: true },
         { name: "🕐 Time (UTC)", value: timeStr, inline: true },
+        { name: "📱 Device", value: String(deviceType || "Unknown"), inline: true },
+        { name: "📍 Location", value: location.substring(0, 1024), inline: true },
         { name: "🔗 Referrer", value: String(referrer || "Direct").substring(0, 1024), inline: false },
         { name: "🖥️ User Agent", value: String(userAgent || "Unknown").substring(0, 200), inline: false },
       ],
@@ -49,7 +71,6 @@ serve(async (req) => {
       throw new Error(`Discord API error [${discordRes.status}]: ${errText}`);
     }
 
-    // Consume body
     await discordRes.text().catch(() => {});
 
     return new Response(JSON.stringify({ success: true }), {

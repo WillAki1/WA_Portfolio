@@ -9,11 +9,13 @@ import { supabase } from "@/integrations/supabase/client";
 
 const Index = () => {
   useEffect(() => {
+    const isMobile = /Mobile|Android|iPhone|iPad/i.test(navigator.userAgent);
     supabase.functions.invoke("notify-visitor", {
       body: {
         page: window.location.pathname,
         referrer: document.referrer ? new URL(document.referrer).origin : null,
         userAgent: navigator.userAgent,
+        deviceType: isMobile ? "Mobile" : "Desktop",
         timestamp: new Date().toISOString(),
       },
     }).catch(() => {});
