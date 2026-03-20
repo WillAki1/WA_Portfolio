@@ -44,15 +44,21 @@ const Hero = () =>
       initial={{ opacity: 0, x: "-100vw" }}
       animate={{ 
         opacity: 1, 
-        x: ["-100vw", "5vw", "-3vw", "2vw", "-1vw", "0.5vw", "0vw"]
+        x: ["-100vw", "6vw", "-4vw", "3vw", "-1.5vw", "0.8vw", "-0.3vw", "0vw"],
+        y: ["0px", "-30px", "0px", "-18px", "0px", "-8px", "0px", "0px"],
       }}
       transition={{
         delay: 0.2,
-        duration: 2,
+        duration: 2.2,
         x: {
-          duration: 2,
-          times: [0, 0.25, 0.42, 0.56, 0.7, 0.85, 1],
+          duration: 2.2,
+          times: [0, 0.22, 0.38, 0.52, 0.64, 0.76, 0.88, 1],
           ease: "easeOut",
+        },
+        y: {
+          duration: 2.2,
+          times: [0, 0.22, 0.38, 0.52, 0.64, 0.76, 0.88, 1],
+          ease: [0.33, 0, 0.67, 1],
         },
         opacity: { duration: 0.3 },
       }}
