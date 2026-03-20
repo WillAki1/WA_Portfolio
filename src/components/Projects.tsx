@@ -134,9 +134,9 @@ const Projects = () =>
         <h2 className="font-mono text-xs uppercase tracking-[0.3em] text-vermillion mb-4 underline underline-offset-8 decoration-vermillion/40">
           PROJECTS
         </h2>
-        <p className="font-mono text-xs uppercase tracking-[0.3em] text-foreground/50 mb-16">
-          A SELECTION OF PROJECTS I'M CURRENTLY EXPLORING.
-        </p>
+        <p className="font-mono text-xs uppercase tracking-[0.3em] text-foreground/50 mb-16">A SELECTION OF PROJECTS I'M CURRENTLY WORKING ON.
+
+      </p>
       </ScrollReveal>
 
       {projects.map((project) =>
