@@ -41,24 +41,18 @@ const Hero = () =>
     
 
       <motion.h1
-      initial={{ opacity: 0, x: "-100vw", y: 0 }}
+      initial={{ opacity: 0, x: "-100vw" }}
       animate={{ 
         opacity: 1, 
-        x: ["-100vw", "-20vw", "0vw", "0vw", "0vw", "0vw", "0vw", "0vw", "0vw"],
-        y: ["0px", "0px", "0px", "-60px", "0px", "-28px", "0px", "-10px", "0px"],
+        x: ["-100vw", "5vw", "-3vw", "2vw", "-1vw", "0.5vw", "0vw"]
       }}
       transition={{
         delay: 0.2,
-        duration: 2.6,
+        duration: 2,
         x: {
-          duration: 1,
-          times: [0, 0.5, 1, 1, 1, 1, 1, 1, 1],
+          duration: 2,
+          times: [0, 0.25, 0.42, 0.56, 0.7, 0.85, 1],
           ease: "easeOut",
-        },
-        y: {
-          duration: 2.6,
-          times: [0, 0.15, 0.3, 0.42, 0.54, 0.66, 0.78, 0.89, 1],
-          ease: [0.2, 0, 0.8, 1],
         },
         opacity: { duration: 0.3 },
       }}
