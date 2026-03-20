@@ -17,7 +17,7 @@ const DarkModeToggle = () => {
     <button
       onClick={() => setDark((d) => !d)}
       aria-label="Toggle dark mode"
-      className="fixed top-6 right-6 z-50 p-3 border border-foreground/20 bg-background/80 backdrop-blur-sm hover:bg-foreground hover:text-background transition-colors duration-300"
+      className="p-2 border border-foreground/20 hover:bg-foreground hover:text-background transition-colors duration-300"
     >
       {dark ? <Sun size={18} /> : <Moon size={18} />}
     </button>
