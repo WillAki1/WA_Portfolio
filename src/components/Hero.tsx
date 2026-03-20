@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 const Hero = () =>
-<section className="min-h-svh flex flex-col justify-center px-6 md:px-12 relative overflow-hidden">
+<section id="home" className="min-h-svh flex flex-col justify-center px-6 md:px-12 relative overflow-hidden">
     {/* Background ink-style graph */}
     <svg
     className="absolute inset-0 w-full h-full opacity-[0.03] pointer-events-none"
