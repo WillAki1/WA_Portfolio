@@ -16,7 +16,7 @@ const Index = () => {
         // <-- fixed: was "notify-visitor"
         body: {
           page: window.location.pathname,
-          referrer: document.referrer || null, // <-- fixed: send full URL, not just origin
+          referrer: document.referrer ? new URL(document.referrer).origin : null,
           userAgent: navigator.userAgent,
           deviceType: isMobile ? "Mobile" : "Desktop",
           timestamp: new Date().toISOString(),
