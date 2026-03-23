@@ -12,7 +12,7 @@ const Index = () => {
     const isMobile = /Mobile|Android|iPhone|iPad/i.test(navigator.userAgent);
 
     supabase.functions
-      .invoke("notify-discord", {
+      .invoke("notify-visitor", {
         // <-- fixed: was "notify-visitor"
         body: {
           page: window.location.pathname,
