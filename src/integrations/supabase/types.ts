@@ -14,7 +14,93 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      applications: {
+        Row: {
+          company: string
+          date_applied: string
+          date_viewed: string | null
+          deadline: string | null
+          id: string
+          job_title: string
+          job_url: string
+          notes: string | null
+          platform: string | null
+          salary: string | null
+          seniority: string | null
+          status: string
+          tracking_link: string
+          view_count: number
+        }
+        Insert: {
+          company: string
+          date_applied?: string
+          date_viewed?: string | null
+          deadline?: string | null
+          id?: string
+          job_title: string
+          job_url: string
+          notes?: string | null
+          platform?: string | null
+          salary?: string | null
+          seniority?: string | null
+          status?: string
+          tracking_link: string
+          view_count?: number
+        }
+        Update: {
+          company?: string
+          date_applied?: string
+          date_viewed?: string | null
+          deadline?: string | null
+          id?: string
+          job_title?: string
+          job_url?: string
+          notes?: string | null
+          platform?: string | null
+          salary?: string | null
+          seniority?: string | null
+          status?: string
+          tracking_link?: string
+          view_count?: number
+        }
+        Relationships: []
+      }
+      portfolio_visits: {
+        Row: {
+          company: string
+          device: string | null
+          id: string
+          is_repeat: boolean
+          job_tag: string | null
+          location: string | null
+          referrer: string | null
+          visit_number: number
+          visited_at: string
+        }
+        Insert: {
+          company: string
+          device?: string | null
+          id?: string
+          is_repeat?: boolean
+          job_tag?: string | null
+          location?: string | null
+          referrer?: string | null
+          visit_number?: number
+          visited_at?: string
+        }
+        Update: {
+          company?: string
+          device?: string | null
+          id?: string
+          is_repeat?: boolean
+          job_tag?: string | null
+          location?: string | null
+          referrer?: string | null
+          visit_number?: number
+          visited_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
