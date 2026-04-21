@@ -108,11 +108,11 @@ function PasswordGate({ onUnlock }: { onUnlock: () => void }) {
           placeholder="Password"
           value={pw}
           onChange={(e) => setPw(e.target.value)}
-          className={`text-center font-mono ${error ? "border-destructive" : ""}`}
+          className={`text-center font-mono h-12 text-base ${error ? "border-destructive" : ""}`}
           autoFocus
         />
         {error && <p className="text-sm text-destructive">Incorrect password</p>}
-        <Button type="submit" className="w-full">
+        <Button type="submit" className="w-full h-12 text-base">
           Unlock
         </Button>
       </form>
@@ -190,16 +190,16 @@ function JobAnalyser({ onSaved }: { onSaved: () => void }) {
         </p>
       </div>
 
-      <form onSubmit={analyse} className="flex gap-3">
+      <form onSubmit={analyse} className="flex flex-col sm:flex-row gap-3">
         <Input
           value={url}
           onChange={(e) => setUrl(e.target.value)}
           placeholder="https://jobs.lever.co/company/role-id"
           type="url"
           required
-          className="flex-1 font-mono text-sm"
+          className="flex-1 font-mono text-sm h-12 sm:h-11"
         />
-        <Button type="submit" disabled={loading} className="shrink-0 gap-2">
+        <Button type="submit" disabled={loading} className="shrink-0 gap-2 h-12 sm:h-11 w-full sm:w-auto">
           {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <LinkIcon className="w-4 h-4" />}
           Generate
         </Button>
@@ -274,7 +274,7 @@ function StatsRow({
   ];
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
       {stats.map((s) => (
         <div key={s.label} className="border border-border bg-card p-4 space-y-1">
           <div className="flex items-center gap-2 text-muted-foreground">
@@ -311,18 +311,18 @@ function ApplicationsTable({
   }, [applications, filter]);
 
   return (
-    <div className="space-y-4">
-      <div className="flex items-center justify-between gap-4">
+    <div id="applications" className="space-y-4 scroll-mt-20">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <h2 className="font-display text-xl text-foreground">Applications</h2>
         <Input
           placeholder="Filter..."
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
-          className="max-w-xs text-sm"
+          className="w-full sm:max-w-xs text-sm h-11 sm:h-10"
         />
       </div>
-      <div className="border border-border overflow-x-auto">
-        <table className="w-full text-sm">
+      <div className="border border-border overflow-x-auto -mx-4 sm:mx-0">
+        <table className="w-full text-sm min-w-[720px]">
           <thead>
             <tr className="border-b border-border bg-muted/50">
               {["Company", "Job Title", "Salary", "Seniority", "Platform", "Applied", "Viewed", "Views", "Status"].map(
