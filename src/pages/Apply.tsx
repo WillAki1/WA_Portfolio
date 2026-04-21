@@ -23,6 +23,11 @@ import {
   TrendingUp,
   Clock,
   ArrowLeft,
+  LayoutDashboard,
+  Plus,
+  Settings,
+  X,
+  Smartphone,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
