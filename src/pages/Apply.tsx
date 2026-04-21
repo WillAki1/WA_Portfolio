@@ -509,6 +509,84 @@ function InterviewInsights({ applications }: { applications: Application[] }) {
   );
 }
 
+// ─── Install Banner (mobile only) ───
+function InstallBanner() {
+  const [dismissed, setDismissed] = useState(
+    () => sessionStorage.getItem("install-banner-dismissed") === "1"
+  );
+
+  // Hide if running as installed PWA
+  const isStandalone =
+    typeof window !== "undefined" &&
+    (window.matchMedia?.("(display-mode: standalone)").matches ||
+      // @ts-expect-error iOS Safari
+      window.navigator.standalone === true);
+
+  if (dismissed || isStandalone) return null;
+
+  return (
+    <div className="md:hidden border-b border-border bg-accent/10">
+      <div className="max-w-6xl mx-auto px-4 py-3 flex items-center gap-3">
+        <Smartphone className="w-4 h-4 text-accent shrink-0" />
+        <p className="text-sm text-foreground flex-1">
+          Add to home screen for the best experience
+        </p>
+        <button
+          onClick={() => {
+            sessionStorage.setItem("install-banner-dismissed", "1");
+            setDismissed(true);
+          }}
+          aria-label="Dismiss"
+          className="w-11 h-11 -mr-2 flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
+        >
+          <X className="w-4 h-4" />
+        </button>
+      </div>
+    </div>
+  );
+}
+
+// ─── Mobile Bottom Nav ───
+function MobileBottomNav({ onAdd, onSettings }: { onAdd: () => void; onSettings: () => void }) {
+  const items = [
+    {
+      label: "Dashboard",
+      icon: LayoutDashboard,
+      onClick: () => window.scrollTo({ top: 0, behavior: "smooth" }),
+    },
+    {
+      label: "Add",
+      icon: Plus,
+      onClick: onAdd,
+    },
+    {
+      label: "Settings",
+      icon: Settings,
+      onClick: onSettings,
+    },
+  ];
+
+  return (
+    <nav
+      className="md:hidden fixed bottom-0 inset-x-0 z-40 border-t border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80"
+      style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
+    >
+      <div className="grid grid-cols-3">
+        {items.map((it) => (
+          <button
+            key={it.label}
+            onClick={it.onClick}
+            className="flex flex-col items-center justify-center gap-1 h-16 text-muted-foreground hover:text-foreground active:text-accent transition-colors"
+          >
+            <it.icon className="w-5 h-5" />
+            <span className="text-[11px] font-medium">{it.label}</span>
+          </button>
+        ))}
+      </div>
+    </nav>
+  );
+}
+
 // ─── Main Page ───
 export default function Apply() {
   const [authed, setAuthed] = useState(() => sessionStorage.getItem("apply-auth") === "1");
@@ -542,24 +620,41 @@ export default function Apply() {
     toast.success(`Status updated to ${status}`);
   };
 
+  const scrollToTop = () =>
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+  const handleSettings = () => {
+    if (confirm("Lock the dashboard?")) {
+      sessionStorage.removeItem("apply-auth");
+      setAuthed(false);
+    }
+  };
+
   if (!authed) return <PasswordGate onUnlock={() => setAuthed(true)} />;
 
   return (
     <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
+      {/* Install Banner (mobile only) */}
+      <InstallBanner />
+
       {/* Header */}
       <header className="border-b border-border">
         <div className="max-w-6xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors">
+            <Link
+              to="/"
+              className="text-muted-foreground hover:text-foreground transition-colors w-11 h-11 -ml-2 flex items-center justify-center"
+              aria-label="Back"
+            >
               <ArrowLeft className="w-5 h-5" />
             </Link>
-            <h1 className="font-display text-lg text-foreground">Application Tracker</h1>
+            <h1 className="font-display text-base sm:text-lg text-foreground">Application Tracker</h1>
           </div>
           <DarkModeToggle />
         </div>
       </header>
 
-      <main className="max-w-6xl mx-auto px-4 md:px-8 py-8 space-y-12">
+      <main className="max-w-6xl mx-auto px-4 md:px-8 py-6 md:py-8 space-y-10 md:space-y-12 pb-24 md:pb-8">
         {/* Section 1: Analyser */}
         <JobAnalyser onSaved={fetchData} />
 
@@ -572,7 +667,7 @@ export default function Apply() {
             <Loader2 className="w-6 h-6 animate-spin text-muted-foreground" />
           </div>
         ) : (
-          <div className="space-y-12">
+          <div className="space-y-10 md:space-y-12">
             <StatsRow applications={applications} visits={visits} />
             <ApplicationsTable applications={applications} onStatusChange={handleStatusChange} />
             <ActivityHeatmap visits={visits} />
@@ -580,6 +675,9 @@ export default function Apply() {
           </div>
         )}
       </main>
+
+      {/* Mobile bottom nav */}
+      <MobileBottomNav onAdd={scrollToTop} onSettings={handleSettings} />
     </div>
   );
 }
