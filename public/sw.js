@@ -1,7 +1,7 @@
 // Service worker for William Akitikori — Job Tracker PWA
 const CACHE_VERSION = "wa-jt-v1";
 const APP_SHELL = [
-  "/apply",
+  "/",
   "/manifest.json",
   "/icon-192.png",
   "/icon-512.png",
@@ -44,11 +44,11 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Navigation requests: serve cached /apply when offline
+  // Navigation requests: serve cached "/" when offline
   if (req.mode === "navigate") {
     event.respondWith(
       fetch(req).catch(() =>
-        caches.match(req).then((cached) => cached || caches.match("/apply"))
+        caches.match(req).then((cached) => cached || caches.match("/"))
       )
     );
     return;
